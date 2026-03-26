@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "214696242662",
+    "project_id": "sea-battle-ff406",
+    "storage_bucket": "sea-battle-ff406.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214696242662:android:6576a04f8eb8101b5aba27",
+        "android_client_info": {
+          "package_name": "uz.gita.seabattle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTGAlcFZp8ZYlj68FlB9dSR4vzBDL0OJg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstScreen">
+
+    <fragment
+        android:id="@+id/firstScreen"
+        android:name="uz.gita.seabattle.presenter.ui.first.FirstScreen"
+        android:label="FirstScreen" >
+        <action
+            android:id="@+id/action_firstScreen_to_secondScreen"
+            app:destination="@id/secondScreen" />
+        <action
+            android:id="@+id/action_firstScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondScreen"
+        android:name="uz.gita.seabattle.presenter.ui.second.SecondScreen"
+        android:label="SecondScreen" >
+        <action
+            android:id="@+id/action_secondScreen_to_homeScreen"
+            app:destination="@id/homeScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameScreen"
+        android:name="uz.gita.seabattle.presenter.ui.game.GameScreen"
+        android:label="GameScreen" />
+    <fragment
+        android:id="@+id/homeScreen"
+        android:name="uz.gita.seabattle.presenter.ui.home.HomeScreen"
+        android:label="HomeScreen" >
+        <argument
+            android:name="gameId"
+            app:argType="string" />
+        <argument
+            android:name="isPlayer1"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_homeScreen_to_gameScreen"
+            app:destination="@id/gameScreen" />
+    </fragment>
+</navigation>
