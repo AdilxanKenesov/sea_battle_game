@@ -20,7 +20,6 @@ class HomeViewModel(private val repo: AuthRepository) : ViewModel() {
     private var selectedShipSize = 0
     private val shipCord = mutableListOf<String>()
 
-    val shipsCord = MutableStateFlow(0)
 
 
     private fun katakList(): List<KatakData>{
@@ -49,8 +48,6 @@ class HomeViewModel(private val repo: AuthRepository) : ViewModel() {
 
     fun placeShip(viewId: Int): Boolean {
         if (selectedShipSize == 0) return false
-
-        val currentList = _katak.value.toMutableList()
         val row = viewId / 10
         val col = viewId % 10
 
@@ -61,22 +58,25 @@ class HomeViewModel(private val repo: AuthRepository) : ViewModel() {
         if (a < 0 || b > 9)
             return false
 
-        val emptyCell = mutableListOf<Int>()
+        val emptyshipList = mutableListOf<Int>()
 
+
+        val currentList = _katak.value.toMutableList()
         for (i in a..b) {
-            val idx = i * 10 + col
-            if (currentList[idx].hasShip) return false
-            emptyCell.add(idx)
+            val x = i * 10 + col
+            if (currentList[x].hasShip)
+                return false
+
+            emptyshipList.add(x)
         }
 
-        emptyCell.forEach { idx ->
-            currentList[idx] = currentList[idx].copy(hasShip = true)
-            shipCord.add("${idx / 10},${idx % 10}")
+        emptyshipList.forEach {
+            currentList[it] = currentList[it].copy(hasShip = true)
+            shipCord.add("${it / 10},${it % 10}")
         }
 
         _katak.value = currentList
         selectedShipSize = 0
-        shipsCord.value += 1
         return true
     }
 
